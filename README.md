@@ -102,39 +102,78 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
 
+### 1.Using nand gates and wires construct sr flip flop.
+
+### 2.Repeat same steps to construct JK,D,T flipflops.
+
+### 3.Find Rtl logic and timing diagram for all flipflops.
+
+### 4.End the program.
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+
+### Developed by: Lakshman
+
+### RegisterNumber:  212222240001
 */
 
 
+### program1
+/* 
+module ex6(s,r,clk,Q,Qbar); 
+input s,r,clk;
+ output Q,Qbar; 
+ reg Q,Qbar; 
+ always@(posedge clk) begin Q <= s|(~r & Q); 
+ Qbar<= r|(~s & ~Q); 
+ end endmodule 
+ */
 
-
+ ### program2
+ /* 
+ module filpflop2(j,k,clk,Q,Qbar); 
+ input j,k,clk;
+  output Q,Qbar;
+   reg Q,Qbar;
+    always @(posedge clk) begin Q<=(j&~Q)|(~k&Q);
+     Qbar<= ~Q;
+      end endmodule 
+*/
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
+### RTL 1
 
+![OUTPUT](/1.png)
 
+### RTL 2
+![OUTPUT](/2.png)
 
+### RTL 3
+![OUTPUT](/3.png)
 
-
-
+### RTL 4
+![OUTPUT](/4.png)
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
+### timing diagram1:
+![OUTPUT](/5.png)
 
+### timing diagram2:
+![OUTPUT](/6.png)
 
+### timing diagram3:
+![OUTPUT](/7.png)
 
-
-
-
+### timing diagram4:
+![OUTPUT](/8.png)
 
 ### RESULTS 
+Thus implementation of SR,JK,D and T flipflops using nand gates are done sucessfully.
