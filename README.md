@@ -123,61 +123,105 @@ Program for flipflops  and verify its truth table in quartus using Verilog progr
 ### SR Flip Flop:
 
 module flipflops(S,R,clk,Q,Qbar);
+
 input S,R,clk;
+
 output reg Q;
+
 output reg Qbar;
+
 initial Q=0;
+
 initial Qbar=1;
+
 always @(posedge clk)
+
 begin
+
 Q=S|((~R)&Q);
+
 Qbar=R|((~S)&(Qbar));
+
 end
+
 endmodule
 
 ### D Flip Flop:
 
 module flipflops(D,clk,Q,Qbar);
+
 input D,clk;
+
 output reg Q;
+
 output reg Qbar;
+
 initial Q=0;
+
 initial Qbar=1;
+
 always @(posedge clk)
+
 begin
+
 Q=D;
+
 Qbar=~D;
+
 end
+
 endmodule
 
 ### JK Flip Flop:
 
 module flipflops(J,K,clk,Q,Qbar);
+
 input J,K,clk;
+
 output reg Q;
+
 output reg Qbar;
+
 initial Q=0;
+
 initial Qbar=1;
+
 always @(posedge clk)
+
 begin
+
 Q=(J&(~Q))|((~K)&Q);
+
 Qbar=((~J)&(Qbar))|K&(~Qbar);
+
 end
+
 endmodule
 
 ### T Flip Flop:
 
 module flipflops(T,clk,Q,Qbar);
+
 input T,clk;
+
 output reg Q;
+
 output reg Qbar;
+
 initial Q=0;
+
 initial Qbar=1;
+
 always @(posedge clk)
+
 begin
+
 Q=(T&(~Q))|((~T)&Q);
+
 Qbar=((~T)&Qbar)|(T&(~Qbar));
+
 end
+
 endmodule
 */
 
