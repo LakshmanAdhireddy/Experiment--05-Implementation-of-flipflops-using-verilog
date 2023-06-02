@@ -120,60 +120,104 @@ Program for flipflops  and verify its truth table in quartus using Verilog progr
 
 ### RegisterNumber:  212222240001
 */
+### SR Flip Flop:
 
+module flipflops(S,R,clk,Q,Qbar);
+input S,R,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=S|((~R)&Q);
+Qbar=R|((~S)&(Qbar));
+end
+endmodule
 
-### program1
-/* 
-module ex6(s,r,clk,Q,Qbar); 
-input s,r,clk;
- output Q,Qbar; 
- reg Q,Qbar; 
- always@(posedge clk) begin Q <= s|(~r & Q); 
- Qbar<= r|(~s & ~Q); 
- end endmodule 
- */
+### D Flip Flop:
 
- ### program2
- /* 
- module filpflop2(j,k,clk,Q,Qbar); 
- input j,k,clk;
-  output Q,Qbar;
-   reg Q,Qbar;
-    always @(posedge clk) begin Q<=(j&~Q)|(~k&Q);
-     Qbar<= ~Q;
-      end endmodule 
+module flipflops(D,clk,Q,Qbar);
+input D,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=D;
+Qbar=~D;
+end
+endmodule
+
+### JK Flip Flop:
+
+module flipflops(J,K,clk,Q,Qbar);
+input J,K,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(J&(~Q))|((~K)&Q);
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+end
+endmodule
+
+### T Flip Flop:
+
+module flipflops(T,clk,Q,Qbar);
+input T,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(T&(~Q))|((~T)&Q);
+Qbar=((~T)&Qbar)|(T&(~Qbar));
+end
+endmodule
 */
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
-### RTL 1
+### SR Flip Flop:
 
-![OUTPUT](/1.png)
+![OUTPUT](/de5.1.png)
 
-### RTL 2
-![OUTPUT](/2.png)
+### D Flip Flop:
 
-### RTL 3
-![OUTPUT](/3.png)
+![OUTPUT](/5.2.png)
 
-### RTL 4
-![OUTPUT](/4.png)
+### JK Flip Flop:
+![OUTPUT](/5.3.png)
+
+### T Flip Flop:
+
+![OUTPUT](/5.4.png)
+
+### TIMING DIGRAMS FOR FLIP FLOPS
+
+### SR Flip Flop:
+
+![OUTPUT](/5.5.png)
+
+### D Flip Flop:
+
+![OUTPUT](/5.6.png)
+
+### JK Flip Flop:
+
+![OUTPUT](/5.7.png)
+
+### T Flip Flop:
+![OUTPUT](/5.8.png)
 
 
-### TIMING DIGRAMS FOR FLIP FLOPS 
 
-### timing diagram1:
-![OUTPUT](/5.png)
-
-### timing diagram2:
-![OUTPUT](/6.png)
-
-### timing diagram3:
-![OUTPUT](/7.png)
-
-### timing diagram4:
-![OUTPUT](/8.png)
 
 ### RESULTS 
 Thus implementation of SR,JK,D and T flipflops using nand gates are done sucessfully.
